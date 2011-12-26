@@ -33,7 +33,8 @@ class core {
 			out.println("JOIN #rezound");
 			Thread.sleep(1000);
 			out.println("JOIN #charge");
-			
+			out.println("JOIN #hideout");
+
 			run(s,in,out);
 			} catch (Exception e){e.printStackTrace();}
 		}
@@ -48,10 +49,12 @@ class core {
 					System.out.println("PONG sent");
 					out.println("PONG " + current.split(" ")[1]);
 				} else if (current.split(" ")[1].equals("PRIVMSG")) {
-					if (current.toLowerCase().contains("siri")){
+					if(current.toLowerCase().split(":siri").length == 2){
 						if (current.toLowerCase().contains("google")){
-							String searchTerms = current.toLowerCase().split("google")[1];
-							out.println("PRIVMSG #" + current.toLowerCase().split("#")[1].split(" ")[0] + " :" + google.search(searchTerms)[1]);
+							String searchTerms = "";
+							searchTerms = current.toLowerCase().split("google")[1];
+							if(!searchTerms.equals(""))
+								out.println("PRIVMSG #" + current.toLowerCase().split("#")[1].split(" ")[0] + " :" + google.search(searchTerms)[1]);
 						} else if (current.toLowerCase().contains("join")){
 							out.println("JOIN " + current.toLowerCase().split("join ")[1]);
 						} else if (current.toLowerCase().contains("source")){

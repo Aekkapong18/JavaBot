@@ -34,7 +34,7 @@ public class google{
 			JSONArray ja = json.getJSONObject("responseData").getJSONArray("results");
 			JSONObject j = ja.getJSONObject(0);
 			//Returns Title: URL
-			String[] ret = {j.toString(), j.getString("titleNoFormatting") + ": " + j.getString("url")};
+			String[] ret = {j.toString(), j.getString("titleNoFormatting") + ": " + URLDecoder.decode(j.getString("url"),"UTF-8")};
 			return ret;
 			} catch (MalformedURLException e) {
 				//Shouldn't EVER hit this.
