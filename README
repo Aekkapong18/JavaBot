@@ -1,1 +1,6 @@
-In progress
+Requires Java7
+You WILL need to modify the code, there isn't a settings file.
+
+
+core.java: execution thread
+google.java: searches google and returns a string formated as "Title: URL"
